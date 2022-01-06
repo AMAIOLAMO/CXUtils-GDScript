@@ -2,7 +2,7 @@ extends Object
 
 class_name CXRandom
 
-static func rand_point_in_circle(radius: float) -> Vector2:
+static func rand_point_in_circle(radius: float = 1.0) -> Vector2:
 	var resultRadius = radius * sqrt(randf())
 	var resultTheta = randf() * 2.0 * PI
 	

@@ -11,3 +11,7 @@ static func is_in_groups(node: Node, groups: Array) -> bool:
 	# else
 	
 	return true
+
+static func inherit_groups(parentNode: Node, childNode: Node) -> void:
+	for group in parentNode.get_groups():
+		childNode.add_to_group(group)
