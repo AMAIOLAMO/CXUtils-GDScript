@@ -24,11 +24,15 @@ static func index_from_weight(weights: Array, totalWeight: int) -> int:
 		var weight: int = weights[i]
 		currentWeight += weight
 		
-		if randValue > currentWeight:
-			continue
+		if randValue > currentWeight: continue
 		# else
 		return i
 	# else not possible
 	
-	printerr("the non possible has happened with weights!")
+	printerr("the impossible has happened with weights!")
 	return -1
+
+static func index_from_weight_items(weightItems: Array, totalWeight: int, weightFunc: String = "get_weight") -> int:
+	var randValue := randi() % totalWeight
+
+	return WeightItemUtils.select_index(randValue, weightItems, weightFunc)
