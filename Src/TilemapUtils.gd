@@ -38,3 +38,9 @@ static func set_area_multi(startX: int, startY: int, width: int, height: int, id
 
 static func set_area_multiv(startPosition: Vector2, size: Vector2, ids: Array, tilemap: TileMap) -> void:
 	set_area_multi(startPosition.x, startPosition.y, size.x, size.y, ids, tilemap)
+
+static func global_to_map(tilemap: TileMap, position: Vector2) -> Vector2:
+	return tilemap.world_to_map(tilemap.to_local(position))
+
+static func map_to_global(tilemap: TileMap, position: Vector2, ignoreHalfOffsets: bool = false) -> Vector2:
+	return tilemap.map_to_world(tilemap.to_global(position), ignoreHalfOffsets)
