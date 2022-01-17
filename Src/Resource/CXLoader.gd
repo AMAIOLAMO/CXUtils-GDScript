@@ -2,11 +2,11 @@ class_name CXLoader
 extends Object
 
 # loads the directory non recursively
-static func load_dir(path: String) -> Array:
+static func load_dir(path: String, typeHint: String = "") -> Array:
 	var directory := Directory.new()
 	directory.open(path)
 
-	var err = directory.list_dir_begin()
+	var err = directory.list_dir_begin(true)
 	if err != OK: return []
 	# else
 	
@@ -15,14 +15,14 @@ static func load_dir(path: String) -> Array:
 
 	while(fileName):
 		if not directory.current_is_dir():
-			var item = load("%s/%s" % [path, fileName])
+			var item = ResourceLoader.load("%s/%s" % [path, fileName], typeHint)
 			result.append(item)
 		fileName = directory.get_next()
 
 	return result
 
 # loads the directory recursively down to the maximum deepness given
-static func load_dir_recursive(path: String, deep: int = 4) -> Array:
+static func load_dir_recursive(path: String, deep: int = 4, typeHint: String = "") -> Array:
 	var directory := Directory.new()
 	directory.open(path)
 	
@@ -41,7 +41,7 @@ static func load_dir_recursive(path: String, deep: int = 4) -> Array:
 			var array = load_dir_recursive("%s/%s" % [path, fileName], deep - 1)
 			result.append_array(array)
 		else:
-			var item = load("%s/%s" % [path, fileName])
+			var item = ResourceLoader.load("%s/%s" % [path, fileName], typeHint)
 			result.append(item)
 
 		fileName = directory.get_next()

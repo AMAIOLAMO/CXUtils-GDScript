@@ -35,4 +35,4 @@ static func index_from_weight(weights: Array, totalWeight: int) -> int:
 static func index_from_weight_items(weightItems: Array, totalWeight: int, weightFunc: String = "get_weight") -> int:
 	var randValue := randi() % totalWeight
 
-	return WeightItemUtils.select_index(randValue, weightItems, weightFunc)
+	return WeightItemUtils.select_itemi(randValue, weightItems, weightFunc)

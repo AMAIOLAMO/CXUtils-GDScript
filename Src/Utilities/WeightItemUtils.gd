@@ -3,7 +3,9 @@ extends Object
 
 const DEFAULT_WEIGHT_FUNC = "get_weight"
 
-static func get_total_weight(weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC) -> int:
+### == INTEGER == ###
+
+static func get_totali(weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC) -> int:
 	var total := 0
 	
 	for item in weightItems:
@@ -11,7 +13,7 @@ static func get_total_weight(weightItems: Array, weightFunc: String = DEFAULT_WE
 	
 	return total
 
-static func select_item(value: int, weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC):
+static func select_itemi(value: int, weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC):
 	var currentWeight := 0
 	
 	for item in weightItems:
@@ -20,12 +22,11 @@ static func select_item(value: int, weightItems: Array, weightFunc: String = DEF
 		if value > currentWeight: continue
 		# else
 		return item
-	# else not possible
+	# else use last
 	
-	printerr("the value is higher than the total value, value: %s" % value)
-	return null
+	return weightItems.back()
 
-static func select_index(value: int, weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC) -> int:
+static func select_indexi(value: int, weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC) -> int:
 	var currentWeight := 0
 	
 	for i in weightItems.size():
@@ -35,7 +36,43 @@ static func select_index(value: int, weightItems: Array, weightFunc: String = DE
 		if value > currentWeight: continue
 		# else
 		return i
-	# else not possible
+	# else use last
 	
-	printerr("the value is higher than the total value, value: %s" % value)
-	return -1
+	return weightItems.size() - 1
+
+### == FLOAT == ###
+
+static func get_totalf(weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC) -> float:
+	var total := 0.0
+	
+	for item in weightItems:
+		total += item.call(weightFunc)
+	
+	return total
+
+static func select_itemf(value: float, weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC):
+	var currentWeight := 0.0
+	
+	for item in weightItems:
+		currentWeight += item.call(weightFunc)
+		
+		if value > currentWeight: continue
+		# else
+		return item
+	# else use last
+	
+	return weightItems.back()
+
+static func select_indexf(value: float, weightItems: Array, weightFunc: String = DEFAULT_WEIGHT_FUNC) -> int:
+	var currentWeight := 0.0
+	
+	for i in weightItems.size():
+		var item = weightItems[i]
+		currentWeight += item.call(weightFunc)
+		
+		if value > currentWeight: continue
+		# else
+		return i
+	# else use last
+	
+	return weightItems.size() - 1
