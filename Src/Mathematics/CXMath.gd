@@ -22,3 +22,6 @@ static func absi(value: int) -> int:
 # exponential interpolation
 static func eerp(a: float, b: float, t: float) -> float:
 	return pow(a, 1.0 - t) * pow(b, t)
+
+static func cubic01(x: float) -> float:
+	return x * x * (3.0 - 2.0 * x)
