@@ -1,6 +1,4 @@
-extends Object
-
-class_name CXRandom
+class_name CXRandom extends Object
 
 static func rand_point_in_circle(radius: float = 1.0) -> Vector2:
 	var resultRadius = radius * sqrt(randf())

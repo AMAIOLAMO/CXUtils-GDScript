@@ -1,5 +1,4 @@
-class_name WeightItemUtils
-extends Object
+class_name WeightItemUtils extends Object
 
 const DEFAULT_WEIGHT_FUNC = "get_weight"
 

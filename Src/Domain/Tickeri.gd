@@ -1,5 +1,4 @@
-class_name Tickeri
-extends Object
+class_name Tickeri extends Object
 
 func reset() -> void:
 	currentTick = 0

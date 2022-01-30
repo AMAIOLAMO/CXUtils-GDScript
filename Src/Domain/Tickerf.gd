@@ -1,5 +1,4 @@
-class_name Tickerf
-extends Object
+class_name Tickerf extends Object
 
 func reset() -> void:
 	currentTick = 0

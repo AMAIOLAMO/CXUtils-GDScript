@@ -1,5 +1,4 @@
-class_name TilemapUtils
-extends Object
+class_name TilemapUtils extends Object
 
 static func set_area_single(startX: int, startY: int, width: int, height: int, id: int, tilemap: TileMap) -> void:
 	var maxX := startX + width

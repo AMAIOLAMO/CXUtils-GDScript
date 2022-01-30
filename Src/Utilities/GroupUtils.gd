@@ -1,6 +1,4 @@
-extends Object
-
-class_name GroupUtils
+class_name GroupUtils extends Object
 
 static func is_in_groups(node: Node, groups: Array) -> bool:
 	if !(groups && groups.size() > 0): return false

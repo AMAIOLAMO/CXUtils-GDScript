@@ -1,5 +1,4 @@
-class_name Int2
-extends Object
+class_name Int2 extends Object
 
 func _init(x: int, y: int) -> void:
 	self.x = x

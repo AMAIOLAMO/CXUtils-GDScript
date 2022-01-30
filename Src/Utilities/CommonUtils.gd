@@ -1,3 +1,2 @@
-class_name CommonUtils
-extends Object
+class_name CommonUtils extends Object
 

@@ -1,5 +1,4 @@
-class_name WeightUtils
-extends Object
+class_name WeightUtils extends Object
 
 ### == INTEGER == ###
 
