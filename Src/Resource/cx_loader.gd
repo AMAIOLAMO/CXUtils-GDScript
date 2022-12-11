@@ -1,4 +1,4 @@
-class_name CXLoader extends Object
+class_name CXLoader
 
 # loads the directory non recursively
 static func load_dir(path: String, typeHint: String = "") -> Array:
